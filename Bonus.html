@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Monday Bonus Assignment Near Int</title>
+	<meta charset="utf-8" />
+    <script>
+        function test() {
+            //varibles that are in use
+            var ret, n;
+            //Convert the users integer to a aboslute integer
+            n = Math.abs(document.getElementById('int').value);
+            //Function that will return true if the integer is +/- 10 from 100 or 200.
+            function trueOrFlase(int_n) {
+                if ((90 <= int_n && int_n <= 110) || (190 <= int_n && int_n <= 210)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            //Call the tureOrFalse function to return true or false for the return reciever variable.
+            ret = trueOrFlase(n);
+            //Let the user know that the integer they have entered is true that it is +/- 10 from 100 or 200, or if it is false.
+            document.getElementById('here').innerHTML = ret;
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>Input A Integer</h1>
+    <p>If it is within 10 of 100 or 200 it will return 'true', else it will return 'false.'</p>
+    <p>The Integer you enter will be taken as an absolute value, feel free to try intgers like 3.333 and -22 as well.</p>
+    Input Your Integer Here:
+    <!--The User is only allowed to enter only numbers and characters '-' and '.'--> 
+    <input type="text" id="int" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 45 && event.charCode <= 46) " value="" />
+    <!--On Clicking the button run the test function and have it return either true or false.-->
+    <button onclick="test()">Test Int</button>
+    <br /><p id="here"></p>
+</body>
+</html>

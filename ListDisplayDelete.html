@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Display List with Delete Function</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h1>List Display/Delete</h1><br />
+    <p>The List will be displayed in the console,<br />
+    so hit f12 or right click and select Inspect Elements.</p><br />
+
+    <p>Click this button to delete the Course Number in your list,<br />
+     to see the result see the message above.</p>
+    <button onclick="del()">Click</button>
+
+    <script>
+        //Variable that is being used, as JSON object.
+        var student = {
+            name: "Sam Jackson",
+            class: "C#",
+            courseno: 1501
+        };
+        //Write the Object out to Console Log
+        console.log(Object.keys(student));
+        console.log("Name: " + student.name);
+        console.log("Class: " + student.class);
+        console.log("Course Number: " + student.courseno);
+        console.log(student);
+
+
+        function del() {
+            //Delete the array within the set student object, being the 'courseno' array 
+            delete student['courseno'];
+            console.log(Object.keys(student));
+            
+            //Since deleting will result in it stating that it is now undefined state that the 'courseno' was removed.
+            if (student.courseno == undefined) {
+                console.log("Course Number was removed.");
+            }
+
+            //show the results
+            console.log("Name: " + student.name);
+            console.log("Class: " + student.class);
+            console.log(student);
+        }
+    </script>
+</body>
+</html>

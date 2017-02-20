@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery Objects</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h1>Get/Display Information from a JQuery Object</h1>
+    <p>Below are a set of DIVs for the JQuery to inherite from:</p><br />
+    <b style="font-size:20px"><u>Title</u></b>
+    <div style="font-size:20px">Twilight</div>
+    <div style="font-size:20px">Harry Potter</div>
+    <div style="font-size:20px">Mockingjay: The Final Book of The Hunger Games</div>
+    <br />
+    <b style="font-size:20px"><u>Author</u></b>
+    <div style="font-size:20px">Stephenie Meyer</div>
+    <div style="font-size:20px">J. K. Rowling</div>
+    <div style="font-size:20px">Suzanne Collins</div>
+    <br />
+    <b style="font-size:20px"><u>Reading Status</u></b>
+    <div style="font-size:20px">Already read</div>
+    <div style="font-size:20px">Already read</div>
+    <div style="font-size:20px">You still need to read</div>
+
+    <!--JQuery-->
+    <script ="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script ="text/javascript">
+        $(document).ready(function () {
+            //Have the JQuery set its Objects to the DIVs in the body.
+            var library = $('div');
+            //Output will be used to display the message in the Console Log.
+            var output;
+            //Getting the Javascript to take in the JQuery Objects
+            var jsObj = {
+                title: [library.get(0).outerText, library.get(1).outerText, library.get(2).outerText],
+                author: [library.get(3).outerText, library.get(4).outerText, library.get(5).outerText],
+                readingStatus: [library.get(6).outerText, library.get(7).outerText, library.get(8).outerText]
+            }
+            //Printing out the message for Each Set of the Three Books
+            for (i = 0; i < 3; i++) {
+                output = jsObj.readingStatus[i] + " '" + jsObj.title[i] + "' by " + jsObj.author[i] + ".";
+                console.log(output);
+            }
+            //Displaying the Objects from the JQuery in JavaScript
+            console.log(Object.keys(jsObj));
+            console.log(jsObj);
+        });
+    </script>
+
+</body>
+</html>
